@@ -26,6 +26,10 @@ export function AuthProvider({ children }) {
        return auth.signOut();
     }
 
+    function resetPassword(email) {
+        return auth.sendPasswordResetEmail(email);
+    }
+
     //so executa quando motamos nosso componet
     useEffect(() => {
         //notifica sempre que um user for definido
@@ -43,7 +47,8 @@ export function AuthProvider({ children }) {
         currentUser,
         signup,
         login,
-        logout
+        logout,
+        resetPassword
     }
     return (
         <AuthContext.Provider value={value}>

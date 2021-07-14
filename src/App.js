@@ -8,6 +8,7 @@ import { PrivateRoute } from "./Components/PrivateRoute";
 import { Signup } from "./Components/Signup";
 import { Dashboard } from "./Components/Dashboard";
 import { Login } from "./Components/Login";
+import {ForgotPassword} from "./Components/ForgotPassword";
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
               <PrivateRoute path="/" exact component={Dashboard}/>
               <Route path="/signup" component={Signup}/>
               <Route path="/login" component={Login}/>
-
+              <Route path="/forgot-password" component={ForgotPassword}/>
             </Switch>
           </AuthProvider>
         </Router>
