@@ -1,7 +1,7 @@
 import { Form, Card, Button, Alert } from 'react-bootstrap'
 
 import React, { useRef, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 export function Login() {
@@ -11,6 +11,7 @@ export function Login() {
     const passwordRef = useRef();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const history = useHistory();
     
     const {login} = useAuth();
 
@@ -21,7 +22,7 @@ export function Login() {
             setError("");
             setLoading(true); //define o estado do butao p/ criar
             await login(emailRef.current.value, passwordRef.current.value);
-
+            history.push("/")
         } catch {
             setError("Failed to log in")
         }

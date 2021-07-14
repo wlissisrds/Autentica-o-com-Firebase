@@ -22,6 +22,10 @@ export function AuthProvider({ children }) {
         return auth.signInWithEmailAndPassword(email, password)
     }
 
+    function logout () {
+        
+    }
+
     //so executa quando motamos nosso componet
     useEffect(() => {
         //notifica sempre que um user for definido
@@ -38,7 +42,8 @@ export function AuthProvider({ children }) {
     const value = {
         currentUser,
         signup,
-        login
+        login,
+        logout
     }
     return (
         <AuthContext.Provider value={value}>
