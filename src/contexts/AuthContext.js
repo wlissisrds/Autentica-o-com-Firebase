@@ -23,7 +23,7 @@ export function AuthProvider({ children }) {
     }
 
     function logout () {
-        
+       return auth.signOut();
     }
 
     //so executa quando motamos nosso componet

@@ -6,14 +6,14 @@ import { useAuth } from '../contexts/AuthContext';
 
 export function Login() {
 
-    
+
     const emailRef = useRef();
     const passwordRef = useRef();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const history = useHistory();
-    
-    const {login} = useAuth();
+
+    const { login } = useAuth();
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -47,6 +47,9 @@ export function Login() {
                         </Form.Group>
                         <Button disabled={loading} className="w-100" type="submit">Log In</Button>
                     </Form>
+                    <div className="w-100 text-center mt-2">
+                        <Link to="forot-password">Forgot Password?</Link>
+                    </div>
                 </Card.Body>
             </Card>
             <div className="w-100 text-center mt-2">

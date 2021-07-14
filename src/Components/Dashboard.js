@@ -1,7 +1,7 @@
 import { Card, Button, Alert } from 'react-bootstrap'
 
 import React, {useState} from 'react'
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 import {useAuth} from '../contexts/AuthContext';
 
@@ -10,8 +10,16 @@ export function Dashboard() {
     const {currentUser, logout} = useAuth();
     const [error, setError] = useState("");
 
-    function handleLogout() {
-        logout();
+    const history = useHistory();
+
+    async function handleLogout() {
+
+        try {
+            await logout();
+            history.push("/login")
+        } catch (error) {
+            setError("Failed to log out")          
+        }
     }
 
     return (
