@@ -30,6 +30,13 @@ export function AuthProvider({ children }) {
         return auth.sendPasswordResetEmail(email);
     }
 
+    function updateEmail(email) {
+        return currentUser.updateEmail(email);
+    }
+
+    function updatePassword(password) {
+        return currentUser.updatePassword(password);
+    }
     //so executa quando motamos nosso componet
     useEffect(() => {
         //notifica sempre que um user for definido
@@ -48,7 +55,9 @@ export function AuthProvider({ children }) {
         signup,
         login,
         logout,
-        resetPassword
+        resetPassword,
+        updateEmail,
+        updatePassword
     }
     return (
         <AuthContext.Provider value={value}>
